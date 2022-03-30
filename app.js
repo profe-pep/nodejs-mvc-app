@@ -49,15 +49,22 @@ mongoose.connect(config.database.uri, (err , res) => {
     }
 })
 
-// App routes
+// App routes - Favicon
+const favicon = require('serve-favicon')
+const path = require('path')
+app.use(favicon(path.join(__dirname, 'favicon.ico')))
+
+// App routes - Web
 const web = require('./routes/web')
 app.use(web)
 
+// App routes - API
 const api = require('./routes/api')
 app.use('/api', api)
 app.use('/api', express.urlencoded({extended: false}))
 app.use('/api', express.json())
 
+// App routes - 404 not found 
 const ErrorCtrl = require('./controllers/error')
 app.use(ErrorCtrl.error404)
 
