@@ -39,9 +39,16 @@ nunjucks.configure('views', {
 })
 
 // App database
+let db = config.database
+if (!db.uri) {
+    db.uri = `${db.driver}://`
+        + (db.username ? `${db.username}:${db.password}@` : '')
+        + `${db.host}:${db.port}/${db.database}`
+}
+console.log(`Connecting to ${db.uri}`)
+
 const mongoose = require('mongoose')
-mongoose.connect(config.database.uri, (err , res) => {
-    // if( err) throw err  // lanza una excepción con error
+mongoose.connect(db.uri, (err , res) => {
     if (err){
         console.log(`DB connection ERROR: ${err}`)
     } else {
