@@ -1,7 +1,6 @@
 'use strict'
 
 // App config
-//require('dotenv').config()
 const config = {
     'server': require('./config/server'),
     'database': require('./config/database')
@@ -40,19 +39,27 @@ nunjucks.configure('views', {
 })
 
 // App database
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 mongoose.connect(config.database.uri, (err , res) => {
     // if( err) throw err  // lanza una excepción con error
     if (err){
-        console.log(`DB connection ERROR: ${err}`);
+        console.log(`DB connection ERROR: ${err}`)
     } else {
-        console.log(`DB connection established`);
+        console.log(`DB connection established`)
     }
 })
 
 // App routes
-const web = require('./routes/web');
-app.use('/', web)
+const web = require('./routes/web')
+app.use(web)
+
+const api = require('./routes/api')
+app.use('/api', api)
+app.use('/api', express.urlencoded({extended: false}))
+app.use('/api', express.json())
+
+const ErrorCtrl = require('./controllers/error')
+app.use(ErrorCtrl.error404)
 
 // Deploy app
 const HOST = config.server.host
@@ -60,4 +67,4 @@ const PORT = config.server.port
 app.listen(PORT, HOST)
 console.log(`Running on http://${HOST}:${PORT}`)
 
-module.exports = app;
+module.exports = app
