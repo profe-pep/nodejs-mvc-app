@@ -6,6 +6,7 @@ Node.js app with routing (web and api) and MVC pattern inspired by Laravel.
 * [express](https://www.npmjs.com/package/express): Web framework
 * [express-session](https://www.npmjs.com/package/express-session): Session middleware for Express
 * [mongoose](https://www.npmjs.com/package/mongoose): MongoDB object modeling
+* [nodemon](https://www.npmjs.com/package/nodemon):  Monitor changes and automatically restart server
 * [pino-http](https://www.npmjs.com/package/pino-http): HTTP logger
 * [pino-pretty](https://www.npmjs.com/package/pino-pretty): Prettify logs
 

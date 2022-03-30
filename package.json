@@ -6,13 +6,14 @@
     "main": "app.js",
     "scripts": {
         "start": "node app.js | pino-pretty > logs/app.log",
-        "debug": "node app.js | pino-pretty"
+        "start-nodemon": "nodemon app.js | pino-pretty > logs/app.log"
     },
     "dependencies": {
         "dotenv": "^16.0.0",
         "express": "^4.16.1",
         "express-session": "^1.17.2",
         "mongoose": "^6.2.9",
+        "nodemon": "^2.0.15",
         "nunjucks": "^3.2.3",
         "pino-http": "^6.6.0",
         "pino-pretty": "^7.6.0",
