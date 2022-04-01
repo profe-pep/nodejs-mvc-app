@@ -18,3 +18,46 @@ Node.js app with routing (web and api) and MVC pattern inspired by Laravel.
 ## especific api packages
 
 * None
+
+# docker deployment
+
+Build image
+
+```
+docker build --build-arg user=<your_machine_username> . -t <your_dockerhub_username>/nodejs-mvc-app
+docker images
+```
+
+Run container
+
+```
+docker run --name nodejs-mvc-app -p <your_machine_port>:8080 -d <your_dockerhub_username>/nodejs-mvc-app
+docker ps
+```
+
+Test container
+
+```
+curl -i localhost:<your_machine_port>
+```
+
+Container terminal
+
+```
+docker ps
+docker exec -it <container_id> bash
+```
+
+Stop container
+
+```
+docker ps
+docker kill <container_id>
+```
+
+Delete image
+
+```
+docker images
+docker image rm [-f] <image_id>
+```
