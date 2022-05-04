@@ -43,10 +43,12 @@ function store(req, res){
 }
 
 function show(req, res){
-    req.log.debug('GET /api/visits/:id')
+    req.log.debug('GET /api/visits/:visit')
     req.log.debug(req.params)
 
-    Visit.findById(req.params.id, (err, found) => {
+    let id = req.params.visit
+
+    Visit.findById(id, (err, found) => {
         if (err) {
             res.status(500).send({
                 'message': `ERROR: ${err}`
@@ -62,11 +64,13 @@ function show(req, res){
 }
 
 function update(req, res){
-    req.log.debug('PUT /api/visits/:id')
+    req.log.debug('PUT /api/visits/:visit')
     req.log.debug(req.params)
     req.log.debug(req.body)
 
-    model.findByIdAndUpdate(req.params.id, req.body, (err, updated) => {
+    let id = req.params.visit
+
+    model.findByIdAndUpdate(id, req.body, (err, updated) => {
         if (err) {
             res.status(500).send({
                 'message': `ERROR: ${err}`
@@ -82,10 +86,12 @@ function update(req, res){
 }
 
 function destroy(req, res){
-    req.log.debug('DELETE /api/visits/:id')
+    req.log.debug('DELETE /api/visits/:visit')
     req.log.debug(req.params)
 
-    Visit.findById(req.params.id, (err, found) => {
+    let id = req.params.visit
+
+    Visit.findById(id, (err, found) => {
         if (err) {
             res.status(500).send({
                 'message': `ERROR: ${err}`
