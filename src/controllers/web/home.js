@@ -2,7 +2,7 @@
 
 function index(req, res){
     // Read JSON file
-    let json = require('../package.json')
+    let json = require('~/package.json')
     // Count site visits
     if (req.session.counter) {
         // Increment the number of views

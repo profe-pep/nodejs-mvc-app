@@ -3,6 +3,10 @@
 const express = require('express')
 var router = express.Router()
 
+// Controllers
+const ErrorCtrl = require('~/controllers/error')
+const HomeCtrl = require('~/controllers/web/home')
+
 // Emulate Laravel resource method
 router.resource = function(resource,controller) {
     let uriLC  = `/${resource}`
@@ -18,14 +22,12 @@ router.resource = function(resource,controller) {
 }
 
 // Homepage
-const HomeCtrl = require('../controllers/home')
 router.get('/', HomeCtrl.index);
 
 // Resource example
 router.resource('incomplete', HomeCtrl)
 
 // Errors
-const ErrorCtrl = require('../controllers/error')
 router.get('/404', ErrorCtrl.error404);
 
 module.exports = router;

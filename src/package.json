@@ -17,6 +17,7 @@
         "nunjucks": "^3.2.3",
         "pino-http": "^6.6.0",
         "pino-pretty": "^7.6.0",
-        "serve-favicon": "^2.5.0"
+        "serve-favicon": "^2.5.0",
+        "wavy": "^1.0.4"
     }
 }

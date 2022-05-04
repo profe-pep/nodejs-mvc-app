@@ -1,6 +1,6 @@
 'use strict'
 
-const Visit = require('../models/Visit')
+const Visit = require('~/models/Visit')
 
 function index(req, res){
     req.log.debug('GET /api/visits')

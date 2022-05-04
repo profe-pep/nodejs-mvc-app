@@ -9,6 +9,8 @@ Node.js app with routing (web and api) and MVC pattern inspired by Laravel.
 * [nodemon](https://www.npmjs.com/package/nodemon):  Monitor changes and automatically restart server
 * [pino-http](https://www.npmjs.com/package/pino-http): HTTP logger
 * [pino-pretty](https://www.npmjs.com/package/pino-pretty): Prettify logs
+* [wavy](https://www.npmjs.com/package/wavy): Use '~' as symlink to app root folder
+
 
 ## especific web packages
 
